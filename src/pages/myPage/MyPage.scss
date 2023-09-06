@@ -1,0 +1,32 @@
+.myPage {
+    // margin: 0px 40px;
+    // margin: 0px auto;
+
+    &__title {
+
+        padding: 40px;
+        color: var(--white);
+        background-color: var(--black);
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__head {
+            font-size: var(--write-normal-area);
+            font-weight: var(--font-middle);
+        }
+
+        &__sub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            li {
+                padding-left: 30px;
+            }
+        }
+    }
+}

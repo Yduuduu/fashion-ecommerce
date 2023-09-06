@@ -26,24 +26,4 @@
             }
         }
     }
-
-    &__menu {
-        display: flex;
-        align-items: center;
-        height: 50px;
-        border-bottom: 1px solid var(--backblue);
-        padding-left: 8px;
-
-        li {
-            float: left;
-            font-size: var(--write-explane);
-            padding: 0px 9px;
-            border-right: 1px solid var(--backblue);
-        }
-
-        :hover {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-    }
 }

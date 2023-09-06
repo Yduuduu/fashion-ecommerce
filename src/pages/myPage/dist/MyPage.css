@@ -1,0 +1,22 @@
+.myPage__title {
+  padding: 40px;
+  color: var(--white);
+  background-color: var(--black);
+}
+.myPage__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.myPage__top__head {
+  font-size: var(--write-normal-area);
+  font-weight: var(--font-middle);
+}
+.myPage__top__sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.myPage__top__sub li {
+  padding-left: 30px;
+}
