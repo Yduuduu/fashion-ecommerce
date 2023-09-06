@@ -1,3 +1,4 @@
+import NavBar from 'component/inc/NavBar';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -6,7 +7,7 @@ function App() {
     <BrowserRouter>
       <React.StrictMode>
         <Routes>
-          <Route />
+          <Route path="/" caseSensitive={true} element={<NavBar />} />
         </Routes>
       </React.StrictMode>
     </BrowserRouter>
