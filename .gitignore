@@ -5,6 +5,7 @@ package-lock.json
 .pnp.js
 /dist
 /.vscode
+.gitignore
 
 # testing
 /coverage
