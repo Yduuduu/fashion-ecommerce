@@ -1,6 +1,19 @@
 /* ========== FONTS ========== */
+// pretendard
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard.css");
-@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+// musinsa font
+@font-face {
+  font-family: 'musinsa-Bold';
+  src: url('fonts/musinsa-Bold.ttf');
+}
+@font-face {
+  font-family: 'musinsa-Medium';
+  src: url('fonts/musinsa-Medium.ttf');
+}
+@font-face {
+  font-family: 'musinsa-Light';
+  src: url('fonts/musinsa-Light.ttf');
+}
 
 :root {
   /* ========== COLOR ========== */
@@ -13,15 +26,24 @@
   --scrollblue:#DEE1EA;
   --footer:#F6F6F6;
   --side-bar:#252733;
-  --red:#E72745;
-  --yellow:#FFDD00;
   --selectblue:#2F313D;
-
   --light-gray:#F8F9FD;
   --light-gray-warm:#F5F5F5;
   --light-bg: #FBFBFB;
   --clear:rgba(255, 255, 255, 0);
-  --button-border: #DCDCDC;
+  
+  --black: #000000;
+  --ash-black: #222;
+  --sky: #00ccff;
+  --sky-light: #22dddd;
+  --blue: #1300ff;
+  --dusk: #6600ff;
+  --purple: #1e3cff;
+  --pink: #ff0066;
+  --red: #fe0222;
+  --orange: #fd7702;
+  --mandarin: #ff9900;
+  --yellow:#FFDD00;
   --green: #3DBB72;
   --deep-green: #3C8862;
 
@@ -30,15 +52,6 @@
   --box-shadow-outline: 0 2px 5px -2px rgba(0, 0, 0, 0.120);
 
   /* ========== FONT SIZE ========== */
-    /*  
-        사용폰트: pretendard
-        폰트패밀리: Bold, Middle, Light, Slim
-        *이외 사용된 폰트가 확인된다면 아래처럼 변경요청
-        Semi bold = Bold
-        Regular = middle 
-
-        일반적인 선은 굵기는 0.5pt 추천
-    */
   --write-normal-area:24px;
   --write-title:20px;
   --write-title-normal:18px;
@@ -60,7 +73,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'musinsa-Medium', 'Pretendard', sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
