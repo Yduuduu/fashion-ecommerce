@@ -36,8 +36,7 @@ function NavBar() {
                         react_1["default"].createElement("li", null, "\uACE0\uAC1D\uC13C\uD130"),
                         react_1["default"].createElement("li", null, "\uB798\uD50C"),
                         react_1["default"].createElement("li", null, "\uBE0C\uB79C\uB4DC \uAD6C\uC778"),
-                        react_1["default"].createElement("li", null, "\uB85C\uADF8\uC544\uC6C3"),
-                        react_1["default"].createElement("li", null, "\uCE5C\uAD6C\uCD08\uB300 EVENT. \uCE5C\uAD6C \uCD08\uB300\uD558\uBA74 5,000\uC6D0 \uC801\uB9BD\uAE08 \uC9C0\uAE09!"))))),
+                        react_1["default"].createElement("li", null, "\uB85C\uADF8\uC544\uC6C3"))))),
         react_1["default"].createElement("main", null,
             react_1["default"].createElement(react_router_dom_1.Outlet, null))));
 }
