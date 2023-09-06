@@ -4,7 +4,7 @@ exports.__esModule = true;
 exports.mileage = exports.coupon = exports.user_nickname = exports.initUsrInfoFilter = exports.setUsrInfoFilter = exports.userInfoSlice = void 0;
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
-    user_nickname: '',
+    user_nickname: '윤뚜뚜',
     coupon: [],
     mileage: 30000
 };
@@ -26,8 +26,8 @@ exports.userInfoSlice = toolkit_1.createSlice({
 });
 exports.setUsrInfoFilter = (_a = exports.userInfoSlice.actions, _a.setUsrInfoFilter), exports.initUsrInfoFilter = _a.initUsrInfoFilter;
 exports.user_nickname = function (state) {
-    return state.ordersheetFilter.user_nickname;
+    return state.userInfoFilter.user_nickname;
 };
-exports.coupon = function (state) { return state.ordersheetFilter.coupon; };
-exports.mileage = function (state) { return state.ordersheetFilter.mileage; };
+exports.coupon = function (state) { return state.userInfoFilter.coupon; };
+exports.mileage = function (state) { return state.userInfoFilter.mileage; };
 exports["default"] = exports.userInfoSlice;

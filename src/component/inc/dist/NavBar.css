@@ -34,3 +34,7 @@
   padding: 0px 9px;
   border-right: 1px solid var(--backblue);
 }
+.navBar__menu :hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

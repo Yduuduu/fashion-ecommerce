@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type RootState = {
-  ordersheetFilter: {
+  userInfoFilter: {
     user_nickname: string;
     coupon: string[];
     mileage: number;
@@ -9,7 +9,7 @@ type RootState = {
 };
 
 const initialState = {
-  user_nickname: '',
+  user_nickname: '윤뚜뚜',
   coupon: [],
   mileage: 30000,
 };
@@ -34,8 +34,8 @@ export const userInfoSlice = createSlice({
 export const { setUsrInfoFilter, initUsrInfoFilter } = userInfoSlice.actions;
 
 export const user_nickname = (state: RootState) =>
-  state.ordersheetFilter.user_nickname;
-export const coupon = (state: RootState) => state.ordersheetFilter.coupon;
-export const mileage = (state: RootState) => state.ordersheetFilter.mileage;
+  state.userInfoFilter.user_nickname;
+export const coupon = (state: RootState) => state.userInfoFilter.coupon;
+export const mileage = (state: RootState) => state.userInfoFilter.mileage;
 
 export default userInfoSlice;

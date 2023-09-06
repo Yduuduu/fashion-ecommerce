@@ -2,9 +2,14 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import './dist/NavBar.css';
 import logo from '../../assets/img/logo_text_white.svg';
+import { useSelector } from 'react-redux';
+import { user_nickname } from '../../store/userInfoSlice';
 
 // NavBar 컴포넌트 정의
 function NavBar() {
+  const nickname = useSelector(user_nickname);
+  console.log(nickname);
+
   return (
     <>
       <header>
@@ -27,7 +32,7 @@ function NavBar() {
           </div>
           <div className="navBar__menu">
             <ul>
-              <li>Lv.99 윤뚜뚜</li>
+              <li>Lv.99 {nickname}</li>
               <li>바로접속 ON</li>
               <li>알림</li>
               <li>마이페이지</li>
@@ -39,7 +44,7 @@ function NavBar() {
               <li>래플</li>
               <li>브랜드 구인</li>
               <li>로그아웃</li>
-              {/* <li>친구초대 EVENT. 친구 초대하면 5,000원 적립금 지급!</li> */}
+              <li>친구초대 EVENT. 친구 초대하면 5,000원 적립금 지급!</li>
             </ul>
           </div>
         </div>

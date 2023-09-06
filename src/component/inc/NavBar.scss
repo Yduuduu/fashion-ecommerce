@@ -1,5 +1,4 @@
 .navBar {
-
     &__top-menu {
         display: flex;
         align-items: center;
@@ -40,6 +39,11 @@
             font-size: var(--write-explane);
             padding: 0px 9px;
             border-right: 1px solid var(--backblue);
+        }
+
+        :hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 }
