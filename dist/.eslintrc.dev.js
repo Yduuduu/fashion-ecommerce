@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
@@ -21,7 +23,9 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-filename-extension': [
       2,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     ],
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
