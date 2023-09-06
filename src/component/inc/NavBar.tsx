@@ -39,7 +39,7 @@ function NavBar() {
               <li>래플</li>
               <li>브랜드 구인</li>
               <li>로그아웃</li>
-              <li>친구초대 EVENT. 친구 초대하면 5,000원 적립금 지급!</li>
+              {/* <li>친구초대 EVENT. 친구 초대하면 5,000원 적립금 지급!</li> */}
             </ul>
           </div>
         </div>
