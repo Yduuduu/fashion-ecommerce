@@ -7,3 +7,9 @@ export const getFormattedDate = (): string => {
   const day = date.getDate().toString().padStart(2, '0');
   return `${year}.${month}.${day}.`;
 };
+
+// 3번째 자리마다 , 찍기
+export const getEraseFourDigits = (data: number) => {
+  const result = data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return result;
+};

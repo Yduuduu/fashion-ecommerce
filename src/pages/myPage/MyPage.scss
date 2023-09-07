@@ -6,19 +6,16 @@
     color: var(--subblue);
 }
 
-.myPage {
-    &__title {
-        padding: 40px;
-        color: var(--white);
-        background-color: var(--black);
-    }
+.myPage-title {
+    padding: 40px;
+    color: var(--white);
+    background-color: var(--black);
 
     &__top {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: rgb(118, 171, 171);
-        padding: 23px 0;
+        padding-bottom: 40px;
 
         &__head {
             font-size: var(--write-normal-area);
@@ -39,15 +36,54 @@
     }
 
     &__info-wrap {
+        position: relative;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.myPage-content {
+    display: flex;
+    margin: 40px;
+    background-color: antiquewhite;
+}
+
+.myPage-side{
+    width: 140px;
+    background-color: rgb(142, 107, 60);
+    margin-right: 40px;
+
+    &__baro {
+        font-size: var(--write-area);
+        font-weight: var(--font-middle);
+        color: var(--sky);
+    }
+
+    &__head {
+        font-size: var(--write-normal-area);
+        font-weight: var(--font-light);
+        margin: 25px 0;
+    }
+
+    ul {
+        li {
+            width: 100%;
+            margin-bottom: 25px;
+            font-size: var(--write-area);
+            color: var(--subblue);
+            cursor: pointer;
+
+            &:hover {
+                color: var(--purple);
+            }
+        }
     }
 }
 
 .myPage-userInfo {
     display: flex;
     align-items: center;
-    background-color: rgb(127, 210, 255);
 
     &__profile {
         height: 160px;
@@ -91,11 +127,11 @@
 }
 
 .myPage-rewardInfo {
-    background-color: rgb(254, 158, 42);
+    position: absolute;
+    bottom: 0;
+    right: 0;
     display: flex;
     align-items: center;
-    display: grid;
-    place-items: end center;
     padding-left: 20px;
 
     &__wrap {
@@ -108,13 +144,13 @@
         }
 
         &__name {
-            margin: 12px 0px;
+            margin: 15px 0px;
             font-size: var(--write-normal);
             font-weight: var(--font-light);
+            cursor: pointer;
         }
 
         &__value {
-
             font-size: 30px;
         }
     }

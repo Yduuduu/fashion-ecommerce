@@ -1,38 +1,70 @@
-.myPage__title {
+.myPage-title {
   padding: 40px;
   color: var(--white);
   background-color: var(--black);
 }
-.myPage__top {
+.myPage-title__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #76abab;
-  padding: 23px 0;
+  padding-bottom: 40px;
 }
-.myPage__top__head {
+.myPage-title__top__head {
   font-size: var(--write-normal-area);
   font-weight: var(--font-middle);
 }
-.myPage__top__sub {
+.myPage-title__top__sub {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.myPage__top__sub li {
+.myPage-title__top__sub li {
   display: inline-block;
   margin-left: 30px;
   cursor: pointer;
 }
-.myPage__info-wrap {
+.myPage-title__info-wrap {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.myPage-content {
+  display: flex;
+  margin: 40px;
+  background-color: antiquewhite;
+}
+
+.myPage-side {
+  width: 140px;
+  background-color: #8e6b3c;
+  margin-right: 40px;
+}
+.myPage-side__baro {
+  font-size: var(--write-area);
+  font-weight: var(--font-middle);
+  color: var(--sky);
+}
+.myPage-side__head {
+  font-size: var(--write-normal-area);
+  font-weight: var(--font-light);
+  margin: 25px 0;
+}
+.myPage-side ul li {
+  width: 100%;
+  margin-bottom: 25px;
+  font-size: var(--write-area);
+  color: var(--subblue);
+  cursor: pointer;
+}
+.myPage-side ul li:hover {
+  color: var(--purple);
 }
 
 .myPage-userInfo {
   display: flex;
   align-items: center;
-  background-color: #7fd2ff;
 }
 .myPage-userInfo__profile {
   height: 160px;
@@ -79,11 +111,11 @@
 }
 
 .myPage-rewardInfo {
-  background-color: #fe9e2a;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  display: grid;
-  place-items: end center;
   padding-left: 20px;
 }
 .myPage-rewardInfo__wrap {
@@ -95,9 +127,10 @@
   width: auto;
 }
 .myPage-rewardInfo__wrap__name {
-  margin: 12px 0px;
+  margin: 15px 0px;
   font-size: var(--write-normal);
   font-weight: var(--font-light);
+  cursor: pointer;
 }
 .myPage-rewardInfo__wrap__value {
   font-size: 30px;
