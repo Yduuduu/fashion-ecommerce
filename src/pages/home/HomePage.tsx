@@ -1,18 +1,20 @@
 import React from 'react';
 import './dist/HomePage.css';
 import { useSelector } from 'react-redux';
-import { user_nickname } from '../../store/userInfoSlice';
+import { nickname, level } from '../../store/userInfoSlice';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-  const nickname = useSelector(user_nickname);
-  console.log(nickname);
+  const _nickname = useSelector(nickname);
+  const _level = useSelector(level);
   return (
     <div className="homePage">
       <div className="homePage__menu">
         <ul>
           <li>
-            <Link to="/mypage">Lv.99 {nickname}</Link>
+            <Link to="/mypage">
+              Lv.{_level} {_nickname}
+            </Link>
           </li>
           <li>
             <Link to="/">바로접속 ON</Link>

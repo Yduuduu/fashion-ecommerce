@@ -6,15 +6,17 @@ var react_redux_1 = require("react-redux");
 var userInfoSlice_1 = require("../../store/userInfoSlice");
 var react_router_dom_1 = require("react-router-dom");
 function HomePage() {
-    var nickname = react_redux_1.useSelector(userInfoSlice_1.user_nickname);
-    console.log(nickname);
+    var _nickname = react_redux_1.useSelector(userInfoSlice_1.nickname);
+    var _level = react_redux_1.useSelector(userInfoSlice_1.level);
     return (react_1["default"].createElement("div", { className: "homePage" },
         react_1["default"].createElement("div", { className: "homePage__menu" },
             react_1["default"].createElement("ul", null,
                 react_1["default"].createElement("li", null,
                     react_1["default"].createElement(react_router_dom_1.Link, { to: "/mypage" },
-                        "Lv.99 ",
-                        nickname)),
+                        "Lv.",
+                        _level,
+                        " ",
+                        _nickname)),
                 react_1["default"].createElement("li", null,
                     react_1["default"].createElement(react_router_dom_1.Link, { to: "/" }, "\uBC14\uB85C\uC811\uC18D ON")),
                 react_1["default"].createElement("li", null,

@@ -1,9 +1,13 @@
+@mixin sub_text {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: var(--write-normal);
+    font-weight: var(--font-slim);
+    color: var(--subblue);
+}
+
 .myPage {
-    // margin: 0px 40px;
-    // margin: 0px auto;
-
     &__title {
-
         padding: 40px;
         color: var(--white);
         background-color: var(--black);
@@ -13,6 +17,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: rgb(118, 171, 171);
+        padding: 23px 0;
 
         &__head {
             font-size: var(--write-normal-area);
@@ -23,10 +29,93 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            
+
             li {
-                padding-left: 30px;
+                display: inline-block;
+                margin-left: 30px;
+                cursor: pointer;
             }
+        }
+    }
+
+    &__info-wrap {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.myPage-userInfo {
+    display: flex;
+    align-items: center;
+    background-color: rgb(127, 210, 255);
+
+    &__profile {
+        height: 160px;
+        width: 160px;
+        margin: 0 40px;
+        background-color: var(--subblue-light);
+        border-radius: 50%;
+    }
+
+    &__text {
+        &__nick-name {
+            font-size: 50px;
+            margin-bottom: 10px;
+
+            span {
+                @include sub_text;
+                cursor: pointer;
+            }
+        }
+
+        &__lank {
+            font-size: var(--write-normal-area);
+            font-weight: var(--font-light);
+            margin-bottom: 15px;
+
+            span {
+                @include sub_text;
+            }
+        }
+
+        &__point-info {
+            font-size: var(--write-area);
+            font-weight: var(--font-light);
+
+            span {
+                @include sub_text;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.myPage-rewardInfo {
+    background-color: rgb(254, 158, 42);
+    display: flex;
+    align-items: center;
+    display: grid;
+    place-items: end center;
+    padding-left: 20px;
+
+    &__wrap {
+        width: 160px;
+        margin-right: 5px;
+
+        &__img {
+            height: 36px;
+            width: auto;
+        }
+
+        &__name {
+            margin: 12px 0px;
+            font-size: var(--write-normal);
+            font-weight: var(--font-light);
+        }
+
+        &__value {
+
+            font-size: 30px;
         }
     }
 }

@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #76abab;
+  padding: 23px 0;
 }
 .myPage__top__head {
   font-size: var(--write-normal-area);
@@ -18,5 +20,85 @@
   justify-content: center;
 }
 .myPage__top__sub li {
-  padding-left: 30px;
+  display: inline-block;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.myPage__info-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.myPage-userInfo {
+  display: flex;
+  align-items: center;
+  background-color: #7fd2ff;
+}
+.myPage-userInfo__profile {
+  height: 160px;
+  width: 160px;
+  margin: 0 40px;
+  background-color: var(--subblue-light);
+  border-radius: 50%;
+}
+.myPage-userInfo__text__nick-name {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.myPage-userInfo__text__nick-name span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: var(--write-normal);
+  font-weight: var(--font-slim);
+  color: var(--subblue);
+  cursor: pointer;
+}
+.myPage-userInfo__text__lank {
+  font-size: var(--write-normal-area);
+  font-weight: var(--font-light);
+  margin-bottom: 15px;
+}
+.myPage-userInfo__text__lank span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: var(--write-normal);
+  font-weight: var(--font-slim);
+  color: var(--subblue);
+}
+.myPage-userInfo__text__point-info {
+  font-size: var(--write-area);
+  font-weight: var(--font-light);
+}
+.myPage-userInfo__text__point-info span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: var(--write-normal);
+  font-weight: var(--font-slim);
+  color: var(--subblue);
+  cursor: pointer;
+}
+
+.myPage-rewardInfo {
+  background-color: #fe9e2a;
+  display: flex;
+  align-items: center;
+  display: grid;
+  place-items: end center;
+  padding-left: 20px;
+}
+.myPage-rewardInfo__wrap {
+  width: 160px;
+  margin-right: 5px;
+}
+.myPage-rewardInfo__wrap__img {
+  height: 36px;
+  width: auto;
+}
+.myPage-rewardInfo__wrap__name {
+  margin: 12px 0px;
+  font-size: var(--write-normal);
+  font-weight: var(--font-light);
+}
+.myPage-rewardInfo__wrap__value {
+  font-size: 30px;
 }
