@@ -4,7 +4,7 @@ export type Product = {
   product_name: string;
   main_image_url: string;
   price: number;
-  prev_delivery_times?: number[]; // 이전 배송 완료까지 걸린 시간(일)
+  prev_delivery_times: number[];
   description: string;
   available_coupon?: boolean;
   maximum_quantity?: number | null;

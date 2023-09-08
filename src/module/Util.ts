@@ -45,3 +45,17 @@ export const getYearMonthDayTime = (date: string) => {
 
   return result;
 };
+
+// 평균 배송일 구하기
+export const calculateAverageDeliveryTime = (
+  prevDeliveryTimes: number[],
+): number => {
+  if (prevDeliveryTimes.length === 0) {
+    return 2;
+  }
+
+  const sum = prevDeliveryTimes.reduce((acc, time) => acc + time, 0);
+  const average = Math.ceil(sum / prevDeliveryTimes.length);
+
+  return average;
+};

@@ -3,13 +3,18 @@ import './dist/HomePage.css';
 import { useSelector } from 'react-redux';
 import { nickname, level } from '../../store/userInfoSlice';
 import { Link } from 'react-router-dom';
+import { Grid } from '@mui/material';
+import { products } from 'data/Product';
+import { getEraseFourDigits, calculateAverageDeliveryTime } from 'module/Util';
 
 function HomePage() {
   const _nickname = useSelector(nickname);
   const _level = useSelector(level);
-  return (
-    <div className="homePage">
-      <div className="homePage__menu">
+
+  // 상단 메뉴 컴포넌트
+  function HomeMenuComponent() {
+    return (
+      <div className="homePage-menu">
         <ul>
           <li>
             <Link to="/mypage">
@@ -47,13 +52,71 @@ function HomePage() {
           <li>
             <Link to="/">로그아웃</Link>
           </li>
-          <li>
+          <li className="homePage-menu__invite">
             <Link to="/">
               친구초대 EVENT. 친구 초대하면 5,000원 적립금 지급!
             </Link>
           </li>
         </ul>
       </div>
+    );
+  }
+  // 사이드 네비게이션 컴포넌트
+  function HomeSideComponent() {
+    return <div className="homePage-side"></div>;
+  }
+  // 상품 컴포넌트
+  function HomeProductComponent() {
+    return (
+      <div className="homePage-product">
+        <Grid item xs={12}>
+          <Grid container>
+            {products
+              .slice()
+              .sort((a, b) => a.product_no - b.product_no)
+              .map((item, idx) => {
+                return (
+                  <Grid item xs={2.4} key={idx}>
+                    <div className="homePage-product__card">
+                      <div className="homePage-product__card__img">
+                        <img src={item.main_image_url} alt="img" />
+                      </div>
+                      <p className="homePage-product__card__text">
+                        <span>{item.product_name}</span>
+                        <br />
+                        {item.available_coupon === false ? (
+                          <span>{getEraseFourDigits(item.price)}원</span>
+                        ) : (
+                          <del>{getEraseFourDigits(item.price)}원</del>
+                        )}
+                        <br />
+                        <span>
+                          {calculateAverageDeliveryTime(
+                            item.prev_delivery_times,
+                          )}
+                        </span>
+                        {item.available_coupon !== false && (
+                          <span>쿠폰사용가능</span>
+                        )}
+                      </p>
+                    </div>
+                  </Grid>
+                );
+              })}
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+
+  return (
+    <div className="homePage">
+      {/* 상단 메뉴 */}
+      <HomeMenuComponent />
+      {/* 사이드 네비게이션 */}
+      <HomeSideComponent />
+      {/* 상품 */}
+      <HomeProductComponent />
     </div>
   );
 }

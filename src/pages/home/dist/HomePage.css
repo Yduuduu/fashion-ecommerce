@@ -1,17 +1,63 @@
-.homePage__menu {
+.homePage-menu {
   display: flex;
   align-items: center;
   height: 50px;
-  border-bottom: 1px solid var(--backblue);
+  border-bottom: 1px solid var(--subblue-light);
   padding-left: 8px;
 }
-.homePage__menu li {
+.homePage-menu li {
   float: left;
   font-size: var(--write-explane);
   padding: 0px 9px;
-  border-right: 1px solid var(--backblue);
+  border-right: 1px solid var(--subblue-light);
 }
-.homePage__menu :hover {
+.homePage-menu :hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.homePage-menu :last-child {
+  border: 0px;
+}
+.homePage-menu__invite {
+  font-weight: var(--font-bold);
+}
+.homePage-menu__invite a {
+  color: var(--sky);
+}
+
+.homePage-side {
+  width: 270px;
+  min-height: 100vh;
+  float: left;
+  border-right: 1px solid var(--subblue-light);
+}
+
+.homePage-product {
+  padding: 20px;
+  margin-left: 270px;
+  background-color: antiquewhite;
+}
+.homePage-product__card {
+  background-color: #bb8ee9;
+  border: 1px solid var(--subblue-light);
+}
+.homePage-product__card__img {
+  position: relative;
+  height: 240px;
+  width: 240px;
+}
+.homePage-product__card__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+.homePage-product__card__text {
+  padding: 20px 0;
+  text-align: center;
 }

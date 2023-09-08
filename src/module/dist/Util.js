@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.getYearMonthDayTime = exports.getDateDiff = exports.getEraseFourDigits = exports.getFormattedDate = void 0;
+exports.calculateAverageDeliveryTime = exports.getYearMonthDayTime = exports.getDateDiff = exports.getEraseFourDigits = exports.getFormattedDate = void 0;
 // 오늘 날짜 표기(0000.00.00.)
 exports.getFormattedDate = function () {
     var date = new Date();
@@ -37,4 +37,13 @@ exports.getDateDiff = function (date) {
 exports.getYearMonthDayTime = function (date) {
     var result = date.substr(2, 2) + '.' + date.substr(5, 2) + '.' + date.substr(8, 2);
     return result;
+};
+// 평균 배송일 구하기
+exports.calculateAverageDeliveryTime = function (prevDeliveryTimes) {
+    if (prevDeliveryTimes.length === 0) {
+        return 2;
+    }
+    var sum = prevDeliveryTimes.reduce(function (acc, time) { return acc + time; }, 0);
+    var average = Math.ceil(sum / prevDeliveryTimes.length);
+    return average;
 };
