@@ -12,6 +12,7 @@ var icon_ticket_svg_1 = require("../../assets/img/icon_ticket.svg");
 var Util_1 = require("../../module/Util");
 var Coupon_1 = require("data/Coupon");
 function MyPage() {
+    // 주문내역 조회 테이블 헤더
     var orderHeadList = [
         {
             title: '상품정보'
@@ -27,6 +28,42 @@ function MyPage() {
         },
         {
             title: '주문 상태'
+        },
+    ];
+    // 장바구니 테이블 헤더
+    var cartList = [
+        {
+            title: '상품정보'
+        },
+        {
+            title: '상품금액'
+        },
+        {
+            title: '수량'
+        },
+        {
+            title: '주문금액'
+        },
+        {
+            title: '배송 형태/배송비'
+        },
+    ];
+    // 쿠폰 테이블 헤더
+    var couponList = [
+        {
+            title: '쿠폰번호'
+        },
+        {
+            title: '쿠폰명'
+        },
+        {
+            title: '할인금액'
+        },
+        {
+            title: '적용 범위'
+        },
+        {
+            title: '유효기간'
         },
     ];
     // 회원정보 컴포넌트
@@ -116,12 +153,59 @@ function MyPage() {
                 react_1["default"].createElement("ul", null,
                     react_1["default"].createElement("li", null, "\uAC8C\uC2DC\uBB3C/\uC2A4\uD06C\uB7A9/\uB313\uAE00"))),
             react_1["default"].createElement("div", { className: "myPage-box" },
-                react_1["default"].createElement("h1", null, "\uC8FC\uBB38\uB0B4\uC5ED \uC870\uD68C"),
-                react_1["default"].createElement("table", null,
-                    react_1["default"].createElement("thead", null,
+                react_1["default"].createElement("h1", { className: "myPage-box__head" }, "\uC8FC\uBB38\uB0B4\uC5ED \uC870\uD68C"),
+                react_1["default"].createElement("table", { className: "myPage-box__table" },
+                    react_1["default"].createElement("thead", { className: "myPage-box__table__head" },
                         react_1["default"].createElement("tr", null, orderHeadList.map(function (item, idx) {
                             return react_1["default"].createElement("th", { key: idx }, item.title);
+                        })))),
+                react_1["default"].createElement("span", { className: "myPage-box__empty-text" }, "\uC8FC\uBB38\uB0B4\uC5ED\uC774 \uBE44\uC5B4\uC788\uC2B5\uB2C8\uB2E4.")),
+            react_1["default"].createElement("div", { className: "myPage-box" },
+                react_1["default"].createElement("h1", { className: "myPage-box__head" }, "\uC7A5\uBC14\uAD6C\uB2C8"),
+                react_1["default"].createElement("table", { className: "myPage-box__table" },
+                    react_1["default"].createElement("thead", { className: "myPage-box__table__head" },
+                        react_1["default"].createElement("tr", null, cartList.map(function (item, idx) {
+                            return react_1["default"].createElement("th", { key: idx }, item.title);
+                        })))),
+                react_1["default"].createElement("span", { className: "myPage-box__empty-text" }, "\uC7A5\uBC14\uAD6C\uB2C8\uC5D0 \uB2F4\uAE34 \uC0C1\uD488\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.")),
+            react_1["default"].createElement("div", { className: "myPage-box" },
+                react_1["default"].createElement("h1", { className: "myPage-box__head" },
+                    "\uCFE0\uD3F0\u00A0",
+                    react_1["default"].createElement("span", { className: "myPage-box__sub" },
+                        Coupon_1.coupons.length,
+                        "\uC7A5")),
+                react_1["default"].createElement("table", { className: "myPage-box__table" },
+                    react_1["default"].createElement("colgroup", null,
+                        react_1["default"].createElement("col", null),
+                        react_1["default"].createElement("col", null),
+                        react_1["default"].createElement("col", null),
+                        react_1["default"].createElement("col", null),
+                        react_1["default"].createElement("col", null)),
+                    react_1["default"].createElement("thead", { className: "myPage-box__table__head" },
+                        react_1["default"].createElement("tr", null, couponList.map(function (item, idx) {
+                            return react_1["default"].createElement("th", { key: idx }, item.title);
                         }))),
-                    react_1["default"].createElement("tbody", null))))));
+                    react_1["default"].createElement("tbody", { className: "myPage-box__table__body" }, Coupon_1.coupons.map(function (item, idx) {
+                        return (react_1["default"].createElement("tr", { key: idx },
+                            react_1["default"].createElement("td", null, item.coupon_no),
+                            react_1["default"].createElement("td", null, item.title),
+                            react_1["default"].createElement("td", null,
+                                item.discount_rate !== undefined &&
+                                    item.discount_rate + "%",
+                                item.discount_amount !== undefined &&
+                                    Util_1.getEraseFourDigits(item.discount_amount) + "\uC6D0",
+                                item.min_order_amount !== undefined && (react_1["default"].createElement("span", null,
+                                    react_1["default"].createElement("br", null), Util_1.getEraseFourDigits(item.min_order_amount) + "\uC6D0 \uC774\uC0C1 \uAD6C\uB9E4 \uC2DC"))),
+                            react_1["default"].createElement("td", null, "\uC77C\uBD80 \uC0C1\uD488"),
+                            react_1["default"].createElement("td", null,
+                                Util_1.getYearMonthDayTime(item.created_date),
+                                " ~",
+                                ' ',
+                                Util_1.getYearMonthDayTime(item.expiration_date),
+                                ".",
+                                react_1["default"].createElement("span", null,
+                                    react_1["default"].createElement("br", null), Util_1.getDateDiff(item.expiration_date) + "\uC77C \uB0A8\uC74C"))));
+                    }))),
+                Coupon_1.coupons.length < 1 && (react_1["default"].createElement("span", { className: "myPage-box__empty-text" }, "\uC0AC\uC6A9\uAC00\uB2A5\uD55C \uCFE0\uD3F0\uC774 \uC5C6\uC2B5\uB2C8\uB2E4."))))));
 }
 exports["default"] = MyPage;

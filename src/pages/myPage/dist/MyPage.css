@@ -30,38 +30,6 @@
   justify-content: space-between;
 }
 
-.myPage-content {
-  display: flex;
-  margin: 40px;
-  background-color: antiquewhite;
-}
-
-.myPage-side {
-  width: 140px;
-  background-color: #8e6b3c;
-  margin-right: 40px;
-}
-.myPage-side__baro {
-  font-size: var(--write-area);
-  font-weight: var(--font-middle);
-  color: var(--sky);
-}
-.myPage-side__head {
-  font-size: var(--write-normal-area);
-  font-weight: var(--font-light);
-  margin: 25px 0;
-}
-.myPage-side ul li {
-  width: 100%;
-  margin-bottom: 25px;
-  font-size: var(--write-area);
-  color: var(--subblue);
-  cursor: pointer;
-}
-.myPage-side ul li:hover {
-  color: var(--purple);
-}
-
 .myPage-userInfo {
   display: flex;
   align-items: center;
@@ -134,4 +102,96 @@
 }
 .myPage-rewardInfo__wrap__value {
   font-size: 30px;
+}
+
+.myPage-content {
+  min-height: 100vh;
+  width: 100%;
+  margin: 40px;
+}
+
+.myPage-side {
+  width: 140px;
+  float: left;
+  padding-right: 40px;
+}
+.myPage-side__baro {
+  font-size: var(--write-area);
+  font-weight: var(--font-middle);
+  color: var(--sky);
+}
+.myPage-side__head {
+  font-size: var(--write-normal-area);
+  font-weight: var(--font-light);
+  margin: 25px 0;
+}
+.myPage-side ul li {
+  width: 100%;
+  margin-bottom: 25px;
+  font-size: var(--write-area);
+  color: var(--subblue);
+  cursor: pointer;
+}
+.myPage-side ul li:hover {
+  color: var(--purple);
+}
+
+.myPage-box {
+  margin-left: 180px;
+  margin-bottom: 40px;
+}
+.myPage-box__head {
+  font-size: var(--write-normal-area);
+  margin-bottom: 20px;
+}
+.myPage-box__sub {
+  font-weight: var(--font-light);
+  color: var(--sky);
+}
+.myPage-box__table {
+  width: calc(100% - 100px);
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+}
+.myPage-box__table colgroup col {
+  width: 15%;
+}
+.myPage-box__table colgroup col:nth-child(2) {
+  width: 20%;
+}
+.myPage-box__table__head th {
+  font-family: "Pretendard";
+  font-size: var(--write-normal);
+  font-weight: var(--font-middle);
+  padding: 23px;
+  border-top: 3px solid var(--black);
+  border-bottom: 1px solid var(--black);
+}
+.myPage-box__table__body tr:hover {
+  background-color: var(--backblue);
+}
+.myPage-box__table__body td {
+  font-family: "Pretendard";
+  font-size: var(--write-normal);
+  font-weight: var(--font-middle);
+  padding: 23px;
+}
+.myPage-box__table__body td span {
+  font-size: var(--write-explane);
+  font-weight: var(--font-light);
+  color: var(--subblue);
+}
+.myPage-box__table__body td:nth-child(2) {
+  text-align: left;
+}
+.myPage-box__empty-text {
+  font-family: "Pretendard";
+  font-size: var(--write-normal);
+  font-weight: var(--font-middle);
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 100px);
+  padding: 100px 0;
+  color: var(--subblue);
 }

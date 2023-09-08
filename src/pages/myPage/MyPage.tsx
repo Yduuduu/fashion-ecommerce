@@ -13,10 +13,16 @@ import icon_coin from '../../assets/img/icon_coin.svg';
 import icon_money from '../../assets/img/icon_money.svg';
 import icon_pen from '../../assets/img/icon_pen.svg';
 import icon_ticket from '../../assets/img/icon_ticket.svg';
-import { getEraseFourDigits, getFormattedDate } from '../../module/Util';
+import {
+  getEraseFourDigits,
+  getFormattedDate,
+  getDateDiff,
+  getYearMonthDayTime,
+} from '../../module/Util';
 import { coupons } from 'data/Coupon';
 
 function MyPage() {
+  // 주문내역 조회 테이블 헤더
   const orderHeadList = [
     {
       title: '상품정보',
@@ -32,6 +38,42 @@ function MyPage() {
     },
     {
       title: '주문 상태',
+    },
+  ];
+  // 장바구니 테이블 헤더
+  const cartList = [
+    {
+      title: '상품정보',
+    },
+    {
+      title: '상품금액',
+    },
+    {
+      title: '수량',
+    },
+    {
+      title: '주문금액',
+    },
+    {
+      title: '배송 형태/배송비',
+    },
+  ];
+  // 쿠폰 테이블 헤더
+  const couponList = [
+    {
+      title: '쿠폰번호',
+    },
+    {
+      title: '쿠폰명',
+    },
+    {
+      title: '할인금액',
+    },
+    {
+      title: '적용 범위',
+    },
+    {
+      title: '유효기간',
     },
   ];
 
@@ -142,18 +184,110 @@ function MyPage() {
             <li>게시물/스크랩/댓글</li>
           </ul>
         </nav>
+        {/* ----- 주문내역 조회 ----- */}
         <div className="myPage-box">
-          <h1>주문내역 조회</h1>
-          <table>
-            <thead>
+          <h1 className="myPage-box__head">주문내역 조회</h1>
+          <table className="myPage-box__table">
+            <thead className="myPage-box__table__head">
               <tr>
                 {orderHeadList.map((item, idx) => {
                   return <th key={idx}>{item.title}</th>;
                 })}
               </tr>
             </thead>
-            <tbody></tbody>
+            {/* <tbody className="myPage-box__table__body">
+              {orderHeadList.map((item, idx) => {
+                return <td key={idx}>{item.title}</td>;
+              })}
+            </tbody> */}
           </table>
+          <span className="myPage-box__empty-text">
+            주문내역이 비어있습니다.
+          </span>
+        </div>
+        {/* ----- 장바구니 ----- */}
+        <div className="myPage-box">
+          <h1 className="myPage-box__head">장바구니</h1>
+          <table className="myPage-box__table">
+            <thead className="myPage-box__table__head">
+              <tr>
+                {cartList.map((item, idx) => {
+                  return <th key={idx}>{item.title}</th>;
+                })}
+              </tr>
+            </thead>
+            {/* <tbody className="myPage-box__table__body">
+              {orderHeadList.map((item, idx) => {
+                return <td key={idx}>{item.title}</td>;
+              })}
+            </tbody> */}
+          </table>
+          <span className="myPage-box__empty-text">
+            장바구니에 담긴 상품이 없습니다.
+          </span>
+        </div>
+        {/* ----- 쿠폰 ----- */}
+        <div className="myPage-box">
+          <h1 className="myPage-box__head">
+            쿠폰&nbsp;
+            <span className="myPage-box__sub">{coupons.length}장</span>
+          </h1>
+          <table className="myPage-box__table">
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead className="myPage-box__table__head">
+              <tr>
+                {couponList.map((item, idx) => {
+                  return <th key={idx}>{item.title}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody className="myPage-box__table__body">
+              {coupons.map((item, idx) => {
+                return (
+                  <tr key={idx}>
+                    <td>{item.coupon_no}</td>
+                    <td>{item.title}</td>
+                    <td>
+                      {/* 비율 할인 */}
+                      {item.discount_rate !== undefined &&
+                        `${item.discount_rate}%`}
+                      {/* 정액 할인 */}
+                      {item.discount_amount !== undefined &&
+                        `${getEraseFourDigits(item.discount_amount)}원`}
+                      {item.min_order_amount !== undefined && (
+                        <span>
+                          <br />
+                          {`${getEraseFourDigits(
+                            item.min_order_amount,
+                          )}원 이상 구매 시`}
+                        </span>
+                      )}
+                    </td>
+                    <td>일부 상품</td>
+                    <td>
+                      {getYearMonthDayTime(item.created_date)} ~{' '}
+                      {getYearMonthDayTime(item.expiration_date)}.
+                      <span>
+                        <br />
+                        {`${getDateDiff(item.expiration_date)}일 남음`}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {coupons.length < 1 && (
+            <span className="myPage-box__empty-text">
+              사용가능한 쿠폰이 없습니다.
+            </span>
+          )}
         </div>
       </div>
     </div>

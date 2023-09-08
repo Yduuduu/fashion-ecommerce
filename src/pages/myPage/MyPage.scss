@@ -6,6 +6,13 @@
     color: var(--subblue);
 }
 
+@mixin table_text {
+    font-family: "Pretendard";
+    font-size: var(--write-normal);
+    font-weight: var(--font-middle);
+}
+
+// 마이페이지 상단 타이틀
 .myPage-title {
     padding: 40px;
     color: var(--white);
@@ -43,44 +50,7 @@
     }
 }
 
-.myPage-content {
-    display: flex;
-    margin: 40px;
-    background-color: antiquewhite;
-}
-
-.myPage-side{
-    width: 140px;
-    background-color: rgb(142, 107, 60);
-    margin-right: 40px;
-
-    &__baro {
-        font-size: var(--write-area);
-        font-weight: var(--font-middle);
-        color: var(--sky);
-    }
-
-    &__head {
-        font-size: var(--write-normal-area);
-        font-weight: var(--font-light);
-        margin: 25px 0;
-    }
-
-    ul {
-        li {
-            width: 100%;
-            margin-bottom: 25px;
-            font-size: var(--write-area);
-            color: var(--subblue);
-            cursor: pointer;
-
-            &:hover {
-                color: var(--purple);
-            }
-        }
-    }
-}
-
+// 상단 타이틀 유저정보 컴포넌트
 .myPage-userInfo {
     display: flex;
     align-items: center;
@@ -126,6 +96,7 @@
     }
 }
 
+// 상단 타이틀 리워드 컴포넌트
 .myPage-rewardInfo {
     position: absolute;
     bottom: 0;
@@ -153,5 +124,117 @@
         &__value {
             font-size: 30px;
         }
+    }
+}
+
+// 마이페이지 컨텐츠
+.myPage-content {
+    min-height: 100vh;
+    width: 100%;
+    margin: 40px;
+}
+
+// 마이페이지 사이드 메뉴
+.myPage-side {
+    width: 140px;
+    float: left;
+    padding-right: 40px;
+
+    &__baro {
+        font-size: var(--write-area);
+        font-weight: var(--font-middle);
+        color: var(--sky);
+    }
+
+    &__head {
+        font-size: var(--write-normal-area);
+        font-weight: var(--font-light);
+        margin: 25px 0;
+    }
+
+    ul {
+        li {
+            width: 100%;
+            margin-bottom: 25px;
+            font-size: var(--write-area);
+            color: var(--subblue);
+            cursor: pointer;
+
+            &:hover {
+                color: var(--purple);
+            }
+        }
+    }
+}
+
+// 마이페이지 세부 컨텐츠
+.myPage-box {
+    margin-left: 180px;
+    margin-bottom: 40px;
+
+    &__head {
+        font-size: var(--write-normal-area);
+        margin-bottom: 20px;
+    }
+
+    &__sub {
+        font-weight: var(--font-light);
+        color: var(--sky);
+    }
+
+    &__table {
+        width: calc(100% - 100px);
+        border-collapse: collapse;
+        table-layout: fixed;
+        text-align: center;
+
+        colgroup {
+            col {
+                width: 15%;
+            }
+
+            col:nth-child(2) {
+                width: 20%;
+            }
+        }
+
+        &__head {
+            th {
+                @include table_text;
+                padding: 23px;
+                border-top: 3px solid var(--black);
+                border-bottom: 1px solid var(--black);
+            }
+        }
+
+        &__body {
+            tr:hover {
+                background-color: var(--backblue)
+            }
+
+            td {
+                @include table_text;
+                padding: 23px;
+
+                span {
+                    font-size: var(--write-explane);
+                    font-weight: var(--font-light);
+                    color: var(--subblue);
+                }
+            }
+
+            td:nth-child(2) {
+                text-align: left
+            }
+        }
+    }
+
+    &__empty-text {
+        @include table_text;
+        display: flex;
+        justify-content: center;
+        width: calc(100% - 100px);
+        padding: 100px 0;
+        color: var(--subblue);
     }
 }
