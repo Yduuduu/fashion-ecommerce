@@ -7,6 +7,7 @@
 }
 .navBar__top-menu__logo {
   height: 23px;
+  cursor: pointer;
 }
 .navBar__top-menu li {
   float: left;

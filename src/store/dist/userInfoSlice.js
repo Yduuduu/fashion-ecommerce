@@ -9,7 +9,7 @@ var initialState = {
     mileage: 30000,
     level: 99,
     lank: '플래티넘',
-    point: 19800
+    point: 9800
 };
 exports.userInfoSlice = toolkit_1.createSlice({
     name: 'userInfoFilter',

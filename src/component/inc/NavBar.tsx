@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import './dist/NavBar.css';
 import logo from '../../assets/img/logo_text_white.svg';
 
@@ -10,7 +10,9 @@ function NavBar() {
       <header>
         <div className="navBar">
           <div className="navBar__top-menu">
-            <img className="navBar__top-menu__logo" src={logo} alt="logo" />
+            <Link to="/">
+              <img className="navBar__top-menu__logo" src={logo} alt="logo" />
+            </Link>
             <ul>
               <li>스웨트 페스티벌</li>
               <li>F/W 신상</li>
