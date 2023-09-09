@@ -4,6 +4,16 @@
     font-weight: var(--font-middle);
 }
 
+@mixin side_bar {
+    float: left;
+    width: calc(50% - 2px);
+    text-align: center;
+    padding: 15px 0;
+    font-size: var(--write-normal);
+    font-weight: var(--font-middle);
+    cursor: pointer;
+}
+
 // 상단 메뉴
 .homePage-menu {
     display: flex;
@@ -40,15 +50,77 @@
 
 // 사이드 네이게이션
 .homePage-side {
-    width: 270px;
+    width: 230px;
     min-height: 100vh;
     float: left;
-    border-right: 1px solid var(--subblue-light);
+    padding: 20px;
+
+    ul {
+        margin-bottom: 60px;
+    }
+
+    &__head-item {
+        @include side_bar;
+        color: var(--subblue);
+        background-color: var(--backblue);
+        border: 1px solid var(--subblue-light);
+
+        &__action {
+            @include side_bar;
+            border-top: 1px solid var(--subblue-light);
+        }
+    }
+
+    &__item {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--subblue-light);
+        cursor: pointer;
+
+        span {
+            font-size: var(--write-normal);
+
+            &:nth-child(2) {
+                display: inline-block;
+                margin-left: 5px;
+                font-size: var(--write-explane);
+                font-weight: var(--font-light);
+                color: var(--subblue);
+            }
+        }
+
+        &:hover {
+            background-color: var(--backblue);
+        }
+    }
+
+    &__brand {
+        padding: 15px 0;
+        cursor: pointer;
+
+        span {
+            display: inline-block;
+            font-size: var(--write-normal);
+
+            &:nth-child(2) {
+                display: inline-block;
+                margin-left: 5px;
+                font-size: var(--write-explane);
+                font-weight: var(--font-light);
+                color: var(--subblue);
+                background-color: saddlebrown;
+            }
+        }
+
+        &:hover {
+            background-color: var(--backblue);
+        }
+    }
 }
 
 .homePage-product {
     padding: 20px;
     margin-left: 270px;
+    border-left: 1px solid var(--subblue-light);
 
     &__card {
         border: 1px solid var(--subblue-light);
