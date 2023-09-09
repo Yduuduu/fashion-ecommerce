@@ -1,3 +1,5 @@
+import { coupons } from 'data/Coupon';
+
 // 오늘 날짜 표기(0000.00.00.)
 export const getFormattedDate = (): string => {
   const date = new Date();
@@ -8,9 +10,11 @@ export const getFormattedDate = (): string => {
   return `${year}.${month}.${day}.`;
 };
 
-// 3번째 자리마다 , 찍기
-export const getEraseFourDigits = (data: number) => {
-  const result = data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+// 날짜 표기 00.00.00
+export const getYearMonthDayTime = (date: string) => {
+  const result =
+    date.substr(2, 2) + '.' + date.substr(5, 2) + '.' + date.substr(8, 2);
+
   return result;
 };
 
@@ -38,11 +42,9 @@ export const getDateDiff = (date: string): number => {
   return Math.max(result + 1, 0);
 };
 
-// 날짜 표기 00.00.00
-export const getYearMonthDayTime = (date: string) => {
-  const result =
-    date.substr(2, 2) + '.' + date.substr(5, 2) + '.' + date.substr(8, 2);
-
+// 3번째 자리마다 , 찍기
+export const getEraseFourDigits = (data: number) => {
+  const result = data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return result;
 };
 
@@ -58,4 +60,63 @@ export const calculateAverageDeliveryTime = (
   const average = Math.ceil(sum / prevDeliveryTimes.length);
 
   return average;
+};
+
+// 배송 소요 날짜 구하기
+export const calculateDeliveryDate = (
+  averageDeliveryTime: number[] | undefined,
+): string => {
+  if (!averageDeliveryTime || averageDeliveryTime.length === 0) {
+    averageDeliveryTime = [2];
+  }
+
+  const sum = averageDeliveryTime.reduce((acc, time) => acc + time, 0);
+  const average = Math.ceil(sum / averageDeliveryTime.length);
+
+  const today = new Date();
+  const deliveryDate = new Date(today);
+  deliveryDate.setDate(today.getDate() + average);
+
+  const month = (deliveryDate.getMonth() + 1).toString().padStart(2, '0');
+  const day = deliveryDate.getDate().toString().padStart(2, '0');
+  const formattedDate = `${month}/${day}`;
+
+  return formattedDate;
+};
+
+// 최적의 쿠폰을 찾아 적용한 금액
+export const applyBestCoupon = (amount: number): number => {
+  let bestDiscount = 0;
+
+  for (const coupon of coupons) {
+    let discount = 0;
+
+    switch (coupon.type) {
+      case 'rate':
+        if (coupon.discount_rate) {
+          discount = (amount * coupon.discount_rate) / 100;
+        }
+        break;
+      case 'amount':
+        if (coupon.discount_amount) {
+          discount = coupon.discount_amount;
+        }
+        break;
+      case 'conditional_amount':
+        if (
+          coupon.discount_amount &&
+          coupon.min_order_amount &&
+          amount >= coupon.min_order_amount
+        ) {
+          discount = coupon.discount_amount;
+        }
+        break;
+    }
+
+    if (discount > bestDiscount) {
+      bestDiscount = discount;
+    }
+  }
+
+  return amount - bestDiscount;
 };

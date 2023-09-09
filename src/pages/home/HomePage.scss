@@ -1,3 +1,9 @@
+@mixin table_text {
+    font-family: "Pretendard";
+    font-size: var(--write-normal);
+    font-weight: var(--font-middle);
+}
+
 // 상단 메뉴
 .homePage-menu {
     display: flex;
@@ -32,8 +38,6 @@
     }
 }
 
-.homePage-content {}
-
 // 사이드 네이게이션
 .homePage-side {
     width: 270px;
@@ -45,12 +49,10 @@
 .homePage-product {
     padding: 20px;
     margin-left: 270px;
-    background-color: antiquewhite;
 
     &__card {
-        background-color: rgb(187, 142, 233);
-        // height: 300px;
         border: 1px solid var(--subblue-light);
+        cursor: pointer;
 
         &__img {
             position: relative;
@@ -68,11 +70,29 @@
                 max-width: 100%;
                 object-fit: cover;
             }
+
+            span {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                display: inline-block;
+                padding: 7px 10px;
+                font-size: var(--write-explane);
+                font-weight: var(--font-light);
+                color: var(--white);
+                background-color: var(--orange);
+            }
         }
 
-        &__text{
-            padding: 20px 0;
-            text-align: center;
+        &__text {
+            @include table_text;
+            padding: 20px;
+            line-height: 20px;
+
+            del {
+                color: var(--subblue);
+                margin-right: 8px;
+            }
         }
     }
 }

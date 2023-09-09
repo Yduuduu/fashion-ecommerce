@@ -5,7 +5,11 @@ import { nickname, level } from '../../store/userInfoSlice';
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material';
 import { products } from 'data/Product';
-import { getEraseFourDigits, calculateAverageDeliveryTime } from 'module/Util';
+import {
+  getEraseFourDigits,
+  calculateDeliveryDate,
+  applyBestCoupon,
+} from 'module/Util';
 
 function HomePage() {
   const _nickname = useSelector(nickname);
@@ -80,6 +84,9 @@ function HomePage() {
                     <div className="homePage-product__card">
                       <div className="homePage-product__card__img">
                         <img src={item.main_image_url} alt="img" />
+                        {item.available_coupon !== false && (
+                          <span>쿠폰사용가능</span>
+                        )}
                       </div>
                       <p className="homePage-product__card__text">
                         <span>{item.product_name}</span>
@@ -87,17 +94,20 @@ function HomePage() {
                         {item.available_coupon === false ? (
                           <span>{getEraseFourDigits(item.price)}원</span>
                         ) : (
-                          <del>{getEraseFourDigits(item.price)}원</del>
+                          <>
+                            <del>{getEraseFourDigits(item.price)}원</del>
+                            <span>
+                              {getEraseFourDigits(applyBestCoupon(item.price))}
+                              원
+                            </span>
+                          </>
                         )}
                         <br />
                         <span>
-                          {calculateAverageDeliveryTime(
-                            item.prev_delivery_times,
-                          )}
+                          {calculateDeliveryDate(item.prev_delivery_times)}{' '}
+                          도착예정
                         </span>
-                        {item.available_coupon !== false && (
-                          <span>쿠폰사용가능</span>
-                        )}
+                        <br />
                       </p>
                     </div>
                   </Grid>
