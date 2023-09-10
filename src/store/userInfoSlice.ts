@@ -12,11 +12,17 @@ type RootState = {
 };
 
 const initialState = {
+  // 유저이름
   nickname: '윤뚜뚜',
+  // 쿠폰리스트
   coupon: [],
+  // 마일리지
   mileage: 30000,
+  // 레벨
   level: 99,
+  // 랭크
   lank: '플래티넘',
+  // 포인트
   point: 9800,
 };
 

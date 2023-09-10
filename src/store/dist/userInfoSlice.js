@@ -4,11 +4,17 @@ exports.__esModule = true;
 exports.point = exports.lank = exports.level = exports.mileage = exports.coupon = exports.nickname = exports.initUsrInfoFilter = exports.setUsrInfoFilter = exports.userInfoSlice = void 0;
 var toolkit_1 = require("@reduxjs/toolkit");
 var initialState = {
+    // 유저이름
     nickname: '윤뚜뚜',
+    // 쿠폰리스트
     coupon: [],
+    // 마일리지
     mileage: 30000,
+    // 레벨
     level: 99,
+    // 랭크
     lank: '플래티넘',
+    // 포인트
     point: 9800
 };
 exports.userInfoSlice = toolkit_1.createSlice({
