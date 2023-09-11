@@ -74,6 +74,10 @@
 .homePage-side__item:hover {
   background-color: var(--backblue);
 }
+.homePage-side__item img {
+  width: 15px;
+  float: right;
+}
 .homePage-side__brand {
   padding: 15px 0;
   cursor: pointer;
@@ -82,13 +86,11 @@
   display: inline-block;
   font-size: var(--write-normal);
 }
-.homePage-side__brand span:nth-child(2) {
+.homePage-side__brand :nth-child(3) {
   display: inline-block;
-  margin-left: 5px;
   font-size: var(--write-explane);
   font-weight: var(--font-light);
   color: var(--subblue);
-  background-color: saddlebrown;
 }
 .homePage-side__brand:hover {
   background-color: var(--backblue);

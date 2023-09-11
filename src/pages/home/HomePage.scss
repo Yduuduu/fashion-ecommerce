@@ -91,6 +91,11 @@
         &:hover {
             background-color: var(--backblue);
         }
+
+        img {
+            width: 15px;
+            float: right;
+        }
     }
 
     &__brand {
@@ -100,15 +105,13 @@
         span {
             display: inline-block;
             font-size: var(--write-normal);
+        }
 
-            &:nth-child(2) {
-                display: inline-block;
-                margin-left: 5px;
-                font-size: var(--write-explane);
-                font-weight: var(--font-light);
-                color: var(--subblue);
-                background-color: saddlebrown;
-            }
+        :nth-child(3) {
+            display: inline-block;
+            font-size: var(--write-explane);
+            font-weight: var(--font-light);
+            color: var(--subblue);
         }
 
         &:hover {
