@@ -37,7 +37,7 @@ function HomeSideComponent() {
         }))),
         react_1["default"].createElement("div", { className: "homePage-side__bottom" },
             react_1["default"].createElement("div", { className: "homePage-side__bottom__call" },
-                react_1["default"].createElement("span", null, "1522-0000"),
+                react_1["default"].createElement("span", null, "1522-1234"),
                 react_1["default"].createElement("span", null, "\uC624\uC8049\uC2DC~\uC624\uD6C46\uC2DC \uC6B4\uC601 / \uD1A0,\uC77C,\uD734\uC77C \uD734\uBB34")),
             react_1["default"].createElement("p", { className: "homePage-side__bottom__text" },
                 react_1["default"].createElement("span", null, "- \uC804\uD654 \uC804 \uC790\uC8FC \uBB3B\uB294 \uC9C8\uBB38\uC744 \uD655\uC778\uD558\uC138\uC694."),

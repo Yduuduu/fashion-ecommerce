@@ -69,7 +69,7 @@ function HomeSideComponent() {
       )}
       <div className="homePage-side__bottom">
         <div className="homePage-side__bottom__call">
-          <span>1522-0000</span>
+          <span>1522-1234</span>
           <span>오전9시~오후6시 운영 / 토,일,휴일 휴무</span>
         </div>
         <p className="homePage-side__bottom__text">
