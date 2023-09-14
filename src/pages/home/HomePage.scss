@@ -99,23 +99,84 @@
     }
 
     &__brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 15px 0;
         cursor: pointer;
 
-        span {
-            display: inline-block;
-            font-size: var(--write-normal);
+        &__wrap {
+            span {
+                display: inline-block;
+                font-size: var(--write-normal);
+            }
+
+            :nth-child(3) {
+                display: inline-block;
+                font-size: var(--write-explane);
+                font-weight: var(--font-light);
+                color: var(--subblue);
+            }
+
+            &:hover {
+                background-color: var(--backblue);
+            }
         }
 
-        :nth-child(3) {
+        img {
+            width: 15px;
+        }
+    }
+
+    &__bottom {
+        &__call {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--subblue-light);
+
+            img {
+                width: 20px;
+                float: left;
+                margin-right: 13px;
+            }
+
+            h4 {
+                font-size: var(--write-normal-area);
+                font-weight: var(--font-middle);
+                margin-bottom: 10px;
+            }
+
+            span {
+                display: inline-block;
+                font-size: var(--write-explane);
+                color: var(--subblue);
+            }
+        }
+
+        &__text {
+            padding: 10px 0;
             display: inline-block;
             font-size: var(--write-explane);
-            font-weight: var(--font-light);
             color: var(--subblue);
+            line-height: 20px;
+
+            a {
+                text-decoration: underline;
+            }
         }
 
-        &:hover {
-            background-color: var(--backblue);
+        &__button {
+            li {
+                font-size: var(--write-explane);
+                font-weight: var(--font-middle);
+                text-align: center;
+                padding: 10px 0;
+                border: 1px solid var(--subblue-light);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--backblue);
+                }
+            }
         }
     }
 }
