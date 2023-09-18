@@ -48,13 +48,11 @@ function HomeSideComponent() {
         <>
           {itemList.map((item, idx) => {
             return (
-              <>
-                <div className="homePage-side__item" key={idx}>
-                  <span>{item.name}</span>
-                  <span>{item.sub}</span>
-                  <img src={icon_arrow_right} alt="arrow-right" />
-                </div>
-              </>
+              <div className="homePage-side__item" key={idx}>
+                <span>{item.name}</span>
+                <span>{item.sub}</span>
+                <img src={icon_arrow_right} alt="arrow-right" />
+              </div>
             );
           })}
         </>

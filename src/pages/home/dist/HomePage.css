@@ -148,7 +148,9 @@
   border-left: 1px solid var(--subblue-light);
 }
 .homePage-product__card {
-  border: 1px solid var(--subblue-light);
+  border-top: 1px solid var(--subblue-light);
+  border-left: 1px solid var(--subblue-light);
+  border-bottom: 1px solid var(--subblue-light);
   cursor: pointer;
 }
 .homePage-product__card__img {
@@ -178,6 +180,11 @@
   color: var(--white);
   background-color: var(--orange);
 }
+.homePage-product__card__info-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .homePage-product__card__text {
   font-family: "Pretendard";
   font-size: var(--write-normal);
@@ -188,4 +195,11 @@
 .homePage-product__card__text del {
   color: var(--subblue);
   margin-right: 8px;
+}
+.homePage-product__card__cart-img {
+  width: 25px;
+  margin-right: 15px;
+}
+.homePage-product div:nth-child(5n) {
+  border-right: 1px solid var(--subblue-light);
 }

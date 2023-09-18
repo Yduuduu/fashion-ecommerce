@@ -187,7 +187,9 @@
     border-left: 1px solid var(--subblue-light);
 
     &__card {
-        border: 1px solid var(--subblue-light);
+        border-top: 1px solid var(--subblue-light);
+        border-left: 1px solid var(--subblue-light);
+        border-bottom: 1px solid var(--subblue-light);
         cursor: pointer;
 
         &__img {
@@ -220,6 +222,12 @@
             }
         }
 
+        &__info-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         &__text {
             @include table_text;
             padding: 20px;
@@ -230,5 +238,14 @@
                 margin-right: 8px;
             }
         }
+
+        &__cart-img {
+            width: 25px;
+            margin-right: 15px;
+        }
+    }
+
+    div:nth-child(5n) {
+        border-right: 1px solid var(--subblue-light);
     }
 }

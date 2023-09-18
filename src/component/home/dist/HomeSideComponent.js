@@ -28,11 +28,10 @@ function HomeSideComponent() {
                 } }, item.name));
         })),
         sideIndex === 0 ? (react_1["default"].createElement(react_1["default"].Fragment, null, SideBarItem_1.itemList.map(function (item, idx) {
-            return (react_1["default"].createElement(react_1["default"].Fragment, null,
-                react_1["default"].createElement("div", { className: "homePage-side__item", key: idx },
-                    react_1["default"].createElement("span", null, item.name),
-                    react_1["default"].createElement("span", null, item.sub),
-                    react_1["default"].createElement("img", { src: icon_arrow_right_svg_1["default"], alt: "arrow-right" }))));
+            return (react_1["default"].createElement("div", { className: "homePage-side__item", key: idx },
+                react_1["default"].createElement("span", null, item.name),
+                react_1["default"].createElement("span", null, item.sub),
+                react_1["default"].createElement("img", { src: icon_arrow_right_svg_1["default"], alt: "arrow-right" })));
         }))) : (react_1["default"].createElement(react_1["default"].Fragment, null, SideBarItem_1.brandList.map(function (item, idx) {
             return (react_1["default"].createElement("div", { className: "homePage-side__brand", key: idx },
                 react_1["default"].createElement("div", { className: "homePage-side__brand__wrap" },

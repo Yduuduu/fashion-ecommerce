@@ -7,9 +7,14 @@ import {
   calculateDeliveryDate,
   applyBestCoupon,
 } from 'module/Util';
+import icon_cart from '../../assets/img/icon_cart.svg';
 
 // 상품 컴포넌트
 function HomeProductComponent() {
+  const cartClickHandler = (idx: number) => {
+    console.log(idx);
+    console.log('클릭');
+  };
   return (
     <div className="homePage-product">
       <Grid item xs={12}>
@@ -27,26 +32,40 @@ function HomeProductComponent() {
                         <span>쿠폰사용가능</span>
                       )}
                     </div>
-                    <p className="homePage-product__card__text">
-                      <span>{item.product_name}</span>
-                      <br />
-                      {item.available_coupon === false ? (
-                        <span>{getEraseFourDigits(item.price)}원</span>
-                      ) : (
-                        <>
-                          <del>{getEraseFourDigits(item.price)}원</del>
-                          <span>
-                            {getEraseFourDigits(applyBestCoupon(item.price))}원
-                          </span>
-                        </>
-                      )}
-                      <br />
-                      <span>
-                        {calculateDeliveryDate(item.prev_delivery_times)}{' '}
-                        도착예정
-                      </span>
-                      <br />
-                    </p>
+                    <div className="homePage-product__card__info-wrap">
+                      <p className="homePage-product__card__text">
+                        <span>{item.product_name}</span>
+                        <br />
+                        {item.available_coupon === false ? (
+                          <span>{getEraseFourDigits(item.price)}원</span>
+                        ) : (
+                          <>
+                            <del>{getEraseFourDigits(item.price)}원</del>
+                            <span>
+                              {getEraseFourDigits(applyBestCoupon(item.price))}
+                              원
+                            </span>
+                          </>
+                        )}
+                        <br />
+                        <span>
+                          {calculateDeliveryDate(item.prev_delivery_times)}{' '}
+                          도착예정
+                        </span>
+                        <br />
+                      </p>
+                      <img
+                        className="homePage-product__card__cart-img"
+                        src={icon_cart}
+                        onClick={() => cartClickHandler(idx)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            cartClickHandler(idx);
+                          }
+                        }}
+                        alt="img"
+                      />
+                    </div>
                   </div>
                 </Grid>
               );
